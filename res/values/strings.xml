@@ -15,9 +15,9 @@
   limitations under the License.
 -->
 <resources>
-    <string name="app_name">Markers</string>
-    <string name="about_title">About Markers</string>
-    <string name="qr_title">QR Code for Markers</string>
+    <string name="app_name">Brushes</string>
+    <string name="about_title">About Brushes</string>
+    <string name="qr_title">QR Code for Brushes</string>
     <string name="about_text">
     	
     </string>

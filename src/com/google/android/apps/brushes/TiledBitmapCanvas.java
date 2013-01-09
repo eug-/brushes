@@ -1,4 +1,4 @@
-package com.google.android.apps.markers;
+package com.google.android.apps.brushes;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,7 +17,7 @@ import android.util.Log;
 public class TiledBitmapCanvas implements CanvasLite {
     public static final boolean DEBUG = false;
     public static final boolean DEBUG_TILES_ON_COMMIT = false;
-    public static final String TAG = "Markers/TiledBitmapCanvas";
+    public static final String TAG = "Brushes/TiledBitmapCanvas";
 
     public static final int DEFAULT_TILE_SIZE = 256;
     private static final float INVALIDATE_PADDING = 4.0f;

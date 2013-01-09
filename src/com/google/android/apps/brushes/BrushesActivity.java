@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.apps.markers;
+package com.google.android.apps.brushes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -67,15 +67,15 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.dsandler.apps.markers.R;
+import org.rf.apps.brushes.R;
 
-import com.google.android.apps.markers.ToolButton.SwatchButton;
+import com.google.android.apps.brushes.ToolButton.SwatchButton;
 
-public class MarkersActivity extends Activity
+public class BrushesActivity extends Activity
 {
     final static int LOAD_IMAGE = 1000;
 
-    private static final String TAG = "Markers";
+    private static final String TAG = "Brushes";
     private static final boolean DEBUG = true;
 
     public static final String IMAGE_SAVE_DIRNAME = "Drawings";
@@ -228,7 +228,7 @@ public class MarkersActivity extends Activity
         root.addView(mSlate, 0);
         
         mMediaScannerConnection =
-                new MediaScannerConnection(MarkersActivity.this, mMediaScannerClient); 
+                new MediaScannerConnection(BrushesActivity.this, mMediaScannerClient); 
 
         
         if (icicle != null) {
@@ -265,7 +265,7 @@ public class MarkersActivity extends Activity
             }
             @Override
             public void setPenColor(ToolButton tool, int color) {
-                MarkersActivity.this.setPenColor(color);
+                BrushesActivity.this.setPenColor(color);
                 mLastColor = mActiveColor;
                 mActiveColor = tool;
                 if (mLastColor != mActiveColor) {
@@ -275,7 +275,7 @@ public class MarkersActivity extends Activity
             }
             @Override
             public void setPenType(ToolButton tool, int penType) {
-                MarkersActivity.this.setPenType(penType);
+                BrushesActivity.this.setPenType(penType);
                 mLastPenType = mActivePenType;
                 mActivePenType = tool;
                 if (mLastPenType != mActivePenType) {
@@ -323,25 +323,25 @@ public class MarkersActivity extends Activity
         final ToolButton penThickButton = (ToolButton) findViewById(R.id.pen_thick);
         penThickButton.setCallback(toolCB);
 
-        final ToolButton fatMarkerButton = (ToolButton) findViewById(R.id.fat_marker);
-        if (fatMarkerButton != null) {
-            fatMarkerButton.setCallback(toolCB);
+        final ToolButton fatBrushButton = (ToolButton) findViewById(R.id.fat_brush);
+        if (fatBrushButton != null) {
+            fatBrushButton.setCallback(toolCB);
         }
 
-        final ToolButton typeWhiteboardButton = (ToolButton) findViewById(R.id.whiteboard_marker);
+        final ToolButton typeWhiteboardButton = (ToolButton) findViewById(R.id.whiteboard_brush);
         typeWhiteboardButton.setCallback(toolCB);
 
-        final ToolButton typeFeltTipButton = (ToolButton) findViewById(R.id.felttip_marker);
+        final ToolButton typeFeltTipButton = (ToolButton) findViewById(R.id.felttip_brush);
         if (typeFeltTipButton != null) {
             typeFeltTipButton.setCallback(toolCB);
         }
         
-        final ToolButton typeAirbrushButton = (ToolButton) findViewById(R.id.airbrush_marker);
+        final ToolButton typeAirbrushButton = (ToolButton) findViewById(R.id.airbrush_brush);
         if (typeAirbrushButton != null) {
             typeAirbrushButton.setCallback(toolCB);
         }
         
-        final ToolButton typeFountainPenButton = (ToolButton) findViewById(R.id.fountainpen_marker);
+        final ToolButton typeFountainPenButton = (ToolButton) findViewById(R.id.fountainpen_brush);
         if (typeFountainPenButton != null) {
             typeFountainPenButton.setCallback(toolCB);
         }
@@ -758,7 +758,7 @@ public class MarkersActivity extends Activity
         sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
         sendIntent.putExtra(Intent.EXTRA_TEXT,
                 "http://play.google.com/store/apps/details?id=" + getPackageName());
-        startActivity(Intent.createChooser(sendIntent, "Share the Markers app with:"));
+        startActivity(Intent.createChooser(sendIntent, "Share the Brushs app with:"));
     }
 
     public void clickMarketLink(View unused) {
@@ -771,7 +771,7 @@ public class MarkersActivity extends Activity
     public void clickSiteLink(View unused) {
         hideOverflow();
         Intent urlIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://dsandler.org/markers?from=app"));
+                Uri.parse("http://rubberflat.com/brushes?from=app"));
         startActivity(urlIntent);
     }
 

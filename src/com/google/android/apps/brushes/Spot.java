@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.apps.markers;
+package com.google.android.apps.brushes;
 
 import android.os.SystemClock;
 import android.view.MotionEvent;

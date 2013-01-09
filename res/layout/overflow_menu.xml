@@ -50,7 +50,7 @@
             android:id="@+id/about" 
             style="@style/ActionBar.MenuItem"
             android:text="About"
-            android:contentDescription="about markers"
+            android:contentDescription="about brushes"
             android:onClick="clickAbout"
             />
 </LinearLayout>

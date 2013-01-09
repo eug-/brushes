@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.apps.markers;
+package com.google.android.apps.brushes;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -38,7 +38,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 
-import org.dsandler.apps.markers.R;
+import org.rf.apps.brushes.R;
 
 public class ToolButton extends View {
     public static class ToolCallback {

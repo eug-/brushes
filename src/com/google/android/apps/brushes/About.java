@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.apps.markers;
+package com.google.android.apps.brushes;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,7 +37,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
 
-import org.dsandler.apps.markers.R;
+import org.rf.apps.brushes.R;
 
 class About {
     static char buf[] = new char[1024];
@@ -70,7 +70,7 @@ class About {
         return version;
     }
 
-	static void show(final MarkersActivity activity) {
+	static void show(final BrushesActivity activity) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle(null);
         builder.setCancelable(true);

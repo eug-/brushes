@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.android.apps.markers;
+package com.google.android.apps.brushes;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Build;
 import android.widget.ImageView;
 
-import org.dsandler.apps.markers.R;
+import org.rf.apps.brushes.R;
 
 class QrCode {
 	static void show(final Activity activity) {

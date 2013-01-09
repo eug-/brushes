@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.apps.markers;
+package com.google.android.apps.brushes;
 
 import java.util.ArrayList;
 
@@ -42,7 +42,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import org.dsandler.apps.markers.R;
+import org.rf.apps.brushes.R;
 
 public class Slate extends View {
 
@@ -112,7 +112,7 @@ public class Slate extends View {
         void strokeEnded();
     }
 
-    private class MarkersPlotter implements SpotFilter.Plotter {
+    private class BrushesPlotter implements SpotFilter.Plotter {
         // Plotter receives pointer coordinates and draws them.
         // It implements the necessary interface to receive filtered Spots from the SpotFilter.
         // It hands off the drawing command to the renderer.
@@ -123,7 +123,7 @@ public class Slate extends View {
         private float mLastPressure = -1f;
         private int mLastTool = 0;
         
-        public MarkersPlotter() {
+        public BrushesPlotter() {
             mCoordBuffer = new SpotFilter(SMOOTHING_FILTER_WLEN, SMOOTHING_FILTER_POS_DECAY, SMOOTHING_FILTER_PRESSURE_DECAY, this);
             mRenderer = new SmoothStroker();
         }
@@ -384,7 +384,7 @@ public class Slate extends View {
         }
     }
 
-    private MarkersPlotter[] mStrokes;
+    private BrushesPlotter[] mStrokes;
 
     Spot mTmpSpot = new Spot();
     
@@ -440,9 +440,9 @@ public class Slate extends View {
         mFountainPenBitsFrame = new Rect(0, 0, mFountainPenBits.getWidth(), mFountainPenBits.getHeight());
 
         // set up individual strokers for each pointer
-        mStrokes = new MarkersPlotter[MAX_POINTERS]; // TODO: don't bother unless hasSystemFeature(MULTITOUCH_DISTINCT)
+        mStrokes = new BrushesPlotter[MAX_POINTERS]; // TODO: don't bother unless hasSystemFeature(MULTITOUCH_DISTINCT)
         for (int i=0; i<mStrokes.length; i++) {
-            mStrokes[i] = new MarkersPlotter();
+            mStrokes[i] = new BrushesPlotter();
         }
         
         mPressureCooker = new PressureCooker(getContext());
@@ -543,7 +543,7 @@ public class Slate extends View {
         int left = 4;
         int bottom = graph.getHeight() - ROW_MARGIN;
         final int STEP = 4; 
-        for (MarkersPlotter st : mStrokes) {
+        for (BrushesPlotter st : mStrokes) {
             float r = st.getLastPressure();
             
             if (r >= FIRM_PRESSURE_LOW && r <= FIRM_PRESSURE_HIGH) 
@@ -676,7 +676,7 @@ public class Slate extends View {
     }
 
     public void setPenColor(int color) {
-        for (MarkersPlotter plotter : mStrokes) {
+        for (BrushesPlotter plotter : mStrokes) {
             // XXX: todo: only do this if the stroke hasn't begun already
             // ...or not; the current behavior allows RAINBOW MODE!!!1!
             plotter.setPenColor(color);
@@ -684,7 +684,7 @@ public class Slate extends View {
     }
     
     public void setPenType(int shape) {
-        for (MarkersPlotter plotter : mStrokes) {
+        for (BrushesPlotter plotter : mStrokes) {
             plotter.setPenType(shape);
         }
     }
